@@ -4,28 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
-import android.print.pdf.PrintedPdfDocument;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity  {
-
-    String parsedText ="";
-    List<String>  listFinal  = new ArrayList<>();
-
-    RecyclerView  recyclerView ;
+public class MainActivity extends AppCompatActivity {
+    private  String parsedText ="";
+    private List<String>  listFinal  = new ArrayList<>();
+    private RecyclerView  recyclerView ;
     private Adapter mAdapter;
 
 
@@ -33,12 +26,9 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         recyclerView  = findViewById(R.id.recycler);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
-
 
         InputStream ins = getResources().openRawResource(
                 getResources().getIdentifier("nitin",
@@ -68,7 +58,6 @@ public class MainActivity extends AppCompatActivity  {
 
                  if((list.get(i).length())==10){
                      System.out.println(list.get(i));
-
                      listFinal.add(list.get(i));
                  }
 
